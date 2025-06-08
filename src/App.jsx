@@ -1,47 +1,16 @@
-import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
-import { CounterAtom } from "./Store/atoms";
-import { EvenSelector } from "./Store/Selectors";
-
+import './App.css'
 function App(){
-  return (
-    <div>
-      <RecoilRoot>
-        <Buttons/>
-        <Value/>
-        <EvenAndOdd/>
-      </RecoilRoot>
-    </div>
-  )
-}
-function Buttons(){
-  const setCount = useSetRecoilState(CounterAtom);
-  function incress(){
-    setCount(prev => prev +2);
-  }
-  function decress(){
-    setCount(prev => prev -1);
-  }
   return(
-    <div>
-      <button onClick={incress}>Incress</button>
-      <button onClick={decress}>Decress</button>
+    <div className='grid grid-cols-12'>
+    <div className="col-span-12 sm:col-span-5 bg-red-300">
+      hi
     </div>
-  )
-}
-function Value(){
-  const value = useRecoilValue(CounterAtom); 
-  return(
-    <div>
-      {value}
+    <div className="col-span-12 sm:col-span-5 bg-yellow-300 ">
+      hi
     </div>
-  )
-}
-function EvenAndOdd(){
-  //gettting the selector and condtionally rendering it 
-  const isEvevn = useRecoilValue(EvenSelector);
-  return(
-    <div>
-      {isEvevn?"Even":"Odd"}
+    <div className="col-span-12 sm:col-span-2 bg-green-300">
+      hi
+    </div>
     </div>
   )
 }
